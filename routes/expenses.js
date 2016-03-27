@@ -6,8 +6,6 @@ var LineItem = require("../models/lineitem").LineItem;
 
 router.get('/create', function(req, res, next) {
 
-  console.log(req.query.name)
-
   var description = req.query.description,
     category = req.query.category,
     amount = req.query.amount,
