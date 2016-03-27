@@ -1,10 +1,6 @@
 $(function() {
 
   initializeOptions();
-  
-  
-  var x = '';
-  
 
   $("#submit").click(function() {
     console.log("Clicked")
@@ -34,6 +30,9 @@ $(function() {
       option += '<option value="' + categories[i].id + '">' + categories[i].name + '</option>';
     }
     $('#category').append(option);
+
+    $('#date').val(new Date().toISOString().slice(0,10))
+    
   }
 
   function callURL(url, callback){
