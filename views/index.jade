@@ -1,17 +1,12 @@
 extends layout
 
 block content
-  p Description: 
-  input(type="text" id="description")
-  p Amount: 
-  input(type="text" id="amount")
-  p Category: 
-  select(id="category")
-  p Date: 
-  input(type="text" id="date")
-  br
-  br
-  input(type="submit" id="submit" value="Submit")
-  br
-  br
-  span(id="statusMessage")
+  div.container
+    form.form-signin
+      h2.form-signin-heading Spending
+      input#amount.form-control(type="number" autofocus='' placeholder='Amount')
+      select#category.form-control
+      input#description.form-control(type='text', placeholder='Description', required='')
+      input#date.form-control(type='date', placeholder='Description', required='')
+      button#submit.btn.btn-lg.btn-primary.btn-block(type='button') Submit
+      p(id="statusMessage")

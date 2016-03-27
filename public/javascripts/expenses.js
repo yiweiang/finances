@@ -1,6 +1,10 @@
 $(function() {
 
   initializeOptions();
+  
+  
+  var x = '';
+  
 
   $("#submit").click(function() {
     console.log("Clicked")
@@ -10,9 +14,9 @@ $(function() {
       category = $("#category").val();
 
     callURL("http://" + window.location.host + "/expenses/create?description=" + description + "&amount=" + amount + "&category=" + category + "&date=" + date, function(responseText) {      
-      console.log(responseText)
-      $("#statusMessage").html(responseText)
-      console.log("Amount: " + responseText.amount)
+      
+      var obj = JSON.parse(responseText);
+      $("#statusMessage").html("$"+obj.amount + " for "+obj.description+" has been logged!")
     });
 
     $("#date").val("");
