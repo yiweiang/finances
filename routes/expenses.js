@@ -20,6 +20,16 @@ router.get('/create', function(req, res, next) {
 
 });
 
+router.get('/list', function(req, res, next) {
+
+  LineItem.find(function(err, allLineItems) {
+    if (err) return console.error(err);
+    res.render('list', { data: allLineItems });
+  });
+
+});
+
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });

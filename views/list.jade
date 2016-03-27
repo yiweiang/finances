@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.container
+    h4= title
+    table(width="90%" style="text-align:left")
+      tr(style="font-weight:600")
+        td Date
+        td Description
+        td Amount
+        td Category
+      for d in data
+        tr
+          td #{d.date}
+          td #{d.description}
+          td $#{d.amount}
+          td #{d.category}
+    .spacer
