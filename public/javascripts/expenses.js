@@ -12,11 +12,11 @@ $(function() {
   $("#submit").click(function() {
     console.log("Clicked")
     var description = $("#description").val(),
-      date = $("#description").val(),
-      amount = $("#description").val(),
-      category = $("#description").val();
+      date = $("#date").val(),
+      amount = $("#amount").val(),
+      category = $("#category").val();
 
-    callURL("http://localhost:3000/expenses/create?description=" + description + "&amount=" + amount + "&category=" + category + "&date=" + date);
+    callURL("http://"+window.location.host+"/expenses/create?description=" + description + "&amount=" + amount + "&category=" + category + "&date=" + date);
 
   });
 
