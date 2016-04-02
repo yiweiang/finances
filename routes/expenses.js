@@ -5,11 +5,9 @@ var db = require('../models/db');
 var LineItem = require("../models/lineitem").LineItem;
 
 router.get('/list', function(req, res, next) {
-  res.render('list')
-});
 
-router.get('/chart', function(req, res, next){
-  res.render('chart')
+ res.render('list')
+
 });
 
 router.post('/create', function(req, res, next) {
@@ -43,20 +41,20 @@ router.get('/listAll', function(req, res, next) {
 
 router.delete('/delete/:id', function(req, res, next) {
   var id = req.params.id;
-  LineItem.findByIdAndRemove(id, function(err, result) {
-
-    if (err) {
+  LineItem.findByIdAndRemove(id, function(err, result){
+    
+     if (err){
       res.send(err);
-    }
-
+     }
+     
     LineItem.
-      find({
-        user: req.session.passport.user.email
-      }).exec(function(err, allLineItems) {
-        if (err) return console.error(err);
-        res.send(allLineItems);
-      })
-
+    find({
+      user: req.session.passport.user.email
+    }).exec(function(err, allLineItems) {
+      if (err) return console.error(err);
+      res.send(allLineItems);
+    })
+    
   })
 });
 
