@@ -25,6 +25,15 @@ $(function() {
     window.location.href = '/auth/google'
   });
 
+  $(".deleteLineItem").click(function() {
+    
+    id = $(".deleteLineItem").prop("id");
+    
+    console.log("http://" + window.location.host + "/expenses/delete/" + id);
+    callURL("http://" + window.location.host + "/expenses/delete/" + id, function(responseText) {
+      location.reload();
+    });
+  });
 
   function initializeOptions() {
     var categories = [{ name: "General Spending", id: "general" }, { name: "Living Expenses", id: "living" }, { name: "Food", id: "food" }, { name: "Health & Wellness", id: "health" },
