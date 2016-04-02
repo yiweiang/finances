@@ -8,7 +8,6 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   middleware = require('./middleware'),
   routes = require('./routes/index'),
-  users = require('./routes/users'),
   expenses = require('./routes/expenses'),
   oauth = require('./routes/oauth');
 
@@ -44,7 +43,6 @@ app
 app
   .use('/auth/google', oauth)
   .use('/', middleware.oauth.isAuthorized, routes)
-  .use('/users', middleware.oauth.isAuthorized, users)
   .use('/expenses', middleware.oauth.isAuthorized, expenses)
 
 // catch 404 and forward to error handler
