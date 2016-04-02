@@ -13,6 +13,14 @@ a {
   margin: 0 auto;
 }
 
+#mySpinner{
+  position:absolute; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin:auto;
+  height:100px;
+}
+
 .form-signin .form-control {
   position: relative;
   height: 60px;

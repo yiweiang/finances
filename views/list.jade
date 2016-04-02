@@ -12,7 +12,11 @@ html(ng-app='financeApp')
     script(src="/javascripts/expenses.js")
     
   body(ng-controller='mainController')
+    
     div.container
+      div.form-signin(ng-show="loading")
+        img(id="mySpinner" src="/images/spinner.gif")
+    div.container(ng-hide="loading")
       h4= title
       table(width="90%" style="text-align:left")
         tr(style="font-weight:600")
