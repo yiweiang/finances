@@ -3,7 +3,8 @@ extends layout
 block content
   div.container
     form.form-signin
-      h2.form-signin-heading Spending
+      h2.form-signin-heading #{displayName}'s spending
+      br
       input#amount.form-control(type="number" autofocus='' placeholder='Amount')
       select#category.form-control
       input#description.form-control(type='text', placeholder='Description', required='')
@@ -13,3 +14,6 @@ block content
       
       p(id="listExpenses") 
         a(href="/expenses/list") List all expenses
+        
+      p(id="listExpenses") 
+        a(href='/auth/google/logout') Logout

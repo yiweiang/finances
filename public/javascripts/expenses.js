@@ -9,10 +9,10 @@ $(function() {
       amount = $("#amount").val(),
       category = $("#category").val();
 
-    callURL("http://" + window.location.host + "/expenses/create?description=" + description + "&amount=" + amount + "&category=" + category + "&date=" + date, function(responseText) {      
-      
+    callURL("http://" + window.location.host + "/expenses/create?description=" + description + "&amount=" + amount + "&category=" + category + "&date=" + date, function(responseText) {
+
       var obj = JSON.parse(responseText);
-      $("#statusMessage").html("$"+obj.amount + " for "+obj.description+" has been logged!")
+      $("#statusMessage").html("$" + obj.amount + " for " + obj.description + " has been logged!")
     });
 
     $("#date").val("");
@@ -20,6 +20,11 @@ $(function() {
     $("#description").val("");
 
   });
+
+  $("#login").click(function() {
+    window.location.href = '/auth/google'
+  });
+
 
   function initializeOptions() {
     var categories = [{ name: "General Spending", id: "general" }, { name: "Living Expenses", id: "living" }, { name: "Food", id: "food" }, { name: "Health & Wellness", id: "health" },
@@ -31,11 +36,11 @@ $(function() {
     }
     $('#category').append(option);
 
-    $('#date').val(new Date().toISOString().slice(0,10))
-    
+    $('#date').val(new Date().toISOString().slice(0, 10))
+
   }
 
-  function callURL(url, callback){
+  function callURL(url, callback) {
     jQuery.ajax({
       url: url,
       dataType: "html"

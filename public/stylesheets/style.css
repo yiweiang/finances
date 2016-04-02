@@ -36,3 +36,7 @@ a {
   text-align:center;
   margin-top:20px;
 }
+
+ .boxContainer{
+      padding-left:20px;  padding-bottom:20px; margin-bottom:20px; -webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px;border:1px solid #f8f8f8;background-color:#F2F2F2;-webkit-box-shadow: #B5B5B5 3px 3px 3px;-moz-box-shadow: #B5B5B5 3px 3px 3px; box-shadow: #B5B5B5 3px 3px 3px;
+  }
