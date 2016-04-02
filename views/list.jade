@@ -10,13 +10,11 @@ block content
         td Category
         td Date
         td Actions
-      for d in data
-        tr
-         
-          td #{d.description}
-          td $#{d.amount}
-          td #{d.category}
-          td #{d.date}
-          td
-            i.deleteLineItem(class="fa fa-trash" id="#{d.id}")
+      tr(ng-repeat="lineItem in lineItems")
+        td {{lineItem.description}}
+        td {{lineItem.amount}}
+        td {{lineItem.category}}
+        td {{lineItem.date | date:"MMMM dd yyyy"}}
+        td
+          i.deleteLineItem(class="fa fa-trash" ng-click="deleteLineItem(lineItem._id)")
     .spacer

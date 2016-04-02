@@ -21,22 +21,41 @@ router.get('/create', function(req, res, next) {
 
 });
 
-router.get('/list', function(req, res, next) {
+router.get('/listAPI', function(req, res, next) {
 
   LineItem.
     find({
       user: req.session.passport.user.email
     }).exec(function(err, allLineItems) {
       if (err) return console.error(err);
-      res.render('list', { data: allLineItems, host: req.headers.host});
+      res.send(allLineItems);
     })
 
 });
 
-router.get('/delete/:id', function(req, res, next) {
+router.get('/list', function(req, res, next) {
+
+ res.render('list')
+
+});
+
+
+router.delete('/delete/:id', function(req, res, next) {
   var id = req.params.id;
   LineItem.findByIdAndRemove(id, function(err, result){
-    res.send("Deleted item " + id)
+    
+     if (err){
+      res.send(err);
+     }
+     
+    LineItem.
+    find({
+      user: req.session.passport.user.email
+    }).exec(function(err, allLineItems) {
+      if (err) return console.error(err);
+      res.send(allLineItems);
+    })
+    
   })
 });
 
