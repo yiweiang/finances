@@ -28,10 +28,16 @@ router.get('/list', function(req, res, next) {
       user: req.session.passport.user.email
     }).exec(function(err, allLineItems) {
       if (err) return console.error(err);
-      console.log(allLineItems)
-      res.render('list', { data: allLineItems });
+      res.render('list', { data: allLineItems, host: req.headers.host});
     })
 
+});
+
+router.get('/delete/:id', function(req, res, next) {
+  var id = req.params.id;
+  LineItem.findByIdAndRemove(id, function(err, result){
+    res.send("Deleted item " + id)
+  })
 });
 
 router.get('/', function(req, res, next) {
