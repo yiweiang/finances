@@ -3,8 +3,7 @@ const router = require('express').Router(),
   GoogleStrategy = require('passport-google-oauth2').Strategy;
 
 passport.serializeUser(function(user, done) {
-  var gecko = user.email.indexOf('@tradegecko.com') !== -1 ? true : false;
-  done(null, { email: user.email, gecko: gecko, displayName: user.displayName });
+  done(null, { email: user.email, displayName: user.displayName });
 });
 
 passport.deserializeUser(function(session, done) { done(null, session); });
@@ -19,8 +18,7 @@ passport.use(new GoogleStrategy({
 }));
 
 var isAuthorized = function(req, res, next) {
-  if (req.isAuthenticated() && req.session.passport.user.gecko) {
-    console.log(req.session.passport.user)
+  if (req.isAuthenticated()) {
     res.addLocals({ email: req.session.passport.user.email, displayName: req.session.passport.user.displayName });
     return next();
   }

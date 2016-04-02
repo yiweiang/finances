@@ -9,9 +9,10 @@ router.get('/create', function(req, res, next) {
   var description = req.query.description,
     category = req.query.category,
     amount = req.query.amount,
-    date = req.query.date;
+    date = req.query.date,
+    user = req.session.passport.user.email;
 
-  var lineitem = new LineItem({ description: description, category: category, amount: amount, date:date });
+  var lineitem = new LineItem({ description: description, category: category, amount: amount, date: date, user: user });
 
   lineitem.save(function(err, savedLineItem) {
     if (err) return console.error(err);
@@ -22,13 +23,16 @@ router.get('/create', function(req, res, next) {
 
 router.get('/list', function(req, res, next) {
 
-  LineItem.find(function(err, allLineItems) {
-    if (err) return console.error(err);
-    res.render('list', { data: allLineItems });
-  });
+  LineItem.
+    find({
+      user: req.session.passport.user.email
+    }).exec(function(err, allLineItems) {
+      if (err) return console.error(err);
+      console.log(allLineItems)
+      res.render('list', { data: allLineItems });
+    })
 
 });
-
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });

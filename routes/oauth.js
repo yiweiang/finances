@@ -9,13 +9,7 @@ router
   }))
 
   .get('/callback', passport.authenticate('google'), function(req, res) {
-    console.log(req.user.displayName)
-    if(req.user.email.indexOf('@tradegecko.com') != -1) {
-      res.redirect("/");
-    } else {
-      req.flash('error', 'Not a TradeGecko Email.');
-      res.redirect("/auth/google/login");
-    }
+    res.redirect("/");
   })
 
   .get('/authenticate-fail', function(res, req) {
