@@ -1,0 +1,19 @@
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href="/bootstrap/bootstrap.min.css")
+    link(rel="stylesheet" href="/font-awesome/css/font-awesome.min.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js')
+    script(src='/chart.js')
+    script(src="/javascripts/expenses.js")
+    
+    script(src='/bower_components/d3/d3.js')
+    script(src='/bower_components/nvd3/build/nv.d3.js')
+    script(src='/bower_components/angular-nvd3/dist/angular-nvd3.js')
+    link(rel='stylesheet', href='/bower_components/nvd3/build/nv.d3.css')
+  body
+    div(ng-app='chartApp')
+      div(ng-controller='barChartController')
+        nvd3(options='options', data='data')

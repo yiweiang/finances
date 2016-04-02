@@ -1,9 +1,10 @@
 // public/core.js
-var scotchTodo = angular.module('financeApp', []);
+var app2 = angular.module('financeApp', []);
 
 function mainController($scope, $http) {
   $scope.formData = {};
   $scope.loading = true;
+
 
   // when landing on the page, get all todos and show them
   $http.get('http://' + window.location.host + '/expenses/listAll')
@@ -25,3 +26,5 @@ function mainController($scope, $http) {
       });
   };
 }
+
+
