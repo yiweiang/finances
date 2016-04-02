@@ -1,20 +1,31 @@
-extends layout
-
-block content
-  div.container
-    h4= title
-    table(width="90%" style="text-align:left")
-      tr(style="font-weight:600")
-        td Description
-        td Amount
-        td Category
-        td Date
-        td Actions
-      tr(ng-repeat="lineItem in lineItems")
-        td {{lineItem.description}}
-        td {{lineItem.amount}}
-        td {{lineItem.category}}
-        td {{lineItem.date | date:"MMMM dd yyyy"}}
-        td
-          i.deleteLineItem(class="fa fa-trash" ng-click="deleteLineItem(lineItem._id)")
-    .spacer
+doctype html
+html(ng-app='financeApp')
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href="/bootstrap/bootstrap.min.css")
+    link(rel="stylesheet" href="/font-awesome/css/font-awesome.min.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
+    script(src='/core.js')
+    script(src="/javascripts/expenses.js")
+    
+  body(ng-controller='mainController')
+    div.container
+      h4= title
+      table(width="90%" style="text-align:left")
+        tr(style="font-weight:600")
+          td Description
+          td Amount
+          td Category
+          td Date
+          td Actions
+        tr(ng-repeat="lineItem in lineItems")
+          td {{lineItem.description}}
+          td {{lineItem.amount}}
+          td {{lineItem.category}}
+          td {{lineItem.date | date:"MMMM dd yyyy"}}
+          td
+            i.deleteLineItem(class="fa fa-trash" ng-click="deleteLineItem(lineItem._id)")
+      .spacer

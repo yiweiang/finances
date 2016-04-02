@@ -4,12 +4,18 @@ var mongoose = require('mongoose');
 var db = require('../models/db');
 var LineItem = require("../models/lineitem").LineItem;
 
-router.get('/create', function(req, res, next) {
+router.get('/list', function(req, res, next) {
 
-  var description = req.query.description,
-    category = req.query.category,
-    amount = req.query.amount,
-    date = req.query.date,
+ res.render('list')
+
+});
+
+router.post('/create', function(req, res, next) {
+
+  var description = req.body.description,
+    category = req.body.category,
+    amount = req.body.amount,
+    date = req.body.date,
     user = req.session.passport.user.email;
 
   var lineitem = new LineItem({ description: description, category: category, amount: amount, date: date, user: user });
@@ -21,7 +27,7 @@ router.get('/create', function(req, res, next) {
 
 });
 
-router.get('/listAPI', function(req, res, next) {
+router.get('/listAll', function(req, res, next) {
 
   LineItem.
     find({
@@ -32,13 +38,6 @@ router.get('/listAPI', function(req, res, next) {
     })
 
 });
-
-router.get('/list', function(req, res, next) {
-
- res.render('list')
-
-});
-
 
 router.delete('/delete/:id', function(req, res, next) {
   var id = req.params.id;

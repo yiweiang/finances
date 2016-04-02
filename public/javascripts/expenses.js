@@ -3,14 +3,17 @@ $(function() {
   initializeOptions();
 
   $("#submit").click(function() {
-    console.log("Clicked")
     var description = $("#description").val(),
       date = $("#date").val(),
       amount = $("#amount").val(),
       category = $("#category").val();
 
-    callURL("http://" + window.location.host + "/expenses/create?description=" + description + "&amount=" + amount + "&category=" + category + "&date=" + date, function(responseText) {
-
+    postURL("http://" + window.location.host + "/expenses/create", 
+      {"description": description,
+      "date":date,
+      "amount": amount,
+      "category": category
+    }, function(responseText) {
       var obj = JSON.parse(responseText);
       $("#statusMessage").html("$" + obj.amount + " for " + obj.description + " has been logged!")
     });
@@ -28,8 +31,6 @@ $(function() {
   $(".deleteLineItem").click(function() {
     
     id = $(".deleteLineItem").prop("id");
-    
-    console.log("http://" + window.location.host + "/expenses/delete/" + id);
     callURL("http://" + window.location.host + "/expenses/delete/" + id, function(responseText) {
       location.reload();
     });
@@ -52,7 +53,19 @@ $(function() {
   function callURL(url, callback) {
     jQuery.ajax({
       url: url,
-      dataType: "html"
+      dataType: "html",
+      type: "GET"
+    }).done(function(responseText) {
+      callback(responseText)
+    })
+  }
+  
+   function postURL(url, data, callback) {
+    jQuery.ajax({
+      data : data,
+      url: url,
+      dataType: "html",
+      type: "POST"
     }).done(function(responseText) {
       callback(responseText)
     })
