@@ -19,11 +19,7 @@ html(ng-app='financeApp')
         img(id="mySpinner" src="/images/spinner.gif")
     div.container(ng-hide="loading")
       h4= title
-      p(ng-hide="lineItems.length")
-        | You have no expenses!. Head 
-        a(href='/') back 
-        | to add more.
-      table(width="90%" style="text-align:left" ng-show="lineItems.length")
+      table(width="90%" style="text-align:left")
         tr(style="font-weight:600")
           td Description
           td Amount
