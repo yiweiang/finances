@@ -3,6 +3,10 @@ body {
   font-family:'Open Sans', Helvetica, Arial, sans-serif;
 }
 
+#logo{
+  height:20px;
+}
+
 a {
   color:#337AB7;
 }
@@ -62,6 +66,3 @@ a {
   font-size:14px;
 }
 
-#logo{
-  height:20px;
-}
