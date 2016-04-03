@@ -3,24 +3,32 @@ $(function() {
   initializeOptions();
 
   $("#submit").click(function() {
+    
+    var allFieldsFilled = false;
+    
     var description = $("#description").val(),
       date = $("#date").val(),
       amount = $("#amount").val(),
       category = $("#category").val();
 
-    postURL("http://" + window.location.host + "/expenses/create", 
-      {"description": description,
-      "date":date,
-      "amount": amount,
-      "category": category
-    }, function(responseText) {
-      var obj = JSON.parse(responseText);
-      $("#statusMessage").html("$" + obj.amount + " for " + obj.description + " has been logged!")
-    });
+    if(description && date && amount && category){
+      postURL("http://" + window.location.host + "/expenses/create", 
+        {"description": description,
+        "date":date,
+        "amount": amount,
+        "category": category
+      }, function(responseText) {
+        var obj = JSON.parse(responseText);
+        $("#statusMessage").html("$" + obj.amount + " for " + obj.description + " has been logged!")
+      });
 
-    $("#date").val("");
-    $("#amount").val("");
-    $("#description").val("");
+      $("#date").val("");
+      $("#amount").val("");
+      $("#description").val("");
+    }
+    else{
+      $("#statusMessage").html("You're missing one of the required fields!")
+    }
 
   });
 
