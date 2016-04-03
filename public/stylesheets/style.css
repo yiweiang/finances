@@ -3,6 +3,19 @@ body {
   font-family:'Open Sans', Helvetica, Arial, sans-serif;
 }
 
+.responsive{
+  display:none
+}
+
+@media (max-width: 600px) {
+  .responsive {
+    display:block
+  }
+  .fullList{
+    visibility:hidden
+  }
+}
+
 #logo{
   height:20px;
 }

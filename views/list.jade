@@ -5,7 +5,14 @@ block content
     div.container
       div.form-signin(ng-show="loading")
         img(id="mySpinner" src="/images/spinner.gif")
-    div.container(ng-hide="loading")
+    div.container.responsive(ng-hide="loading")
+      h4 Recent Expenses
+      div(ng-repeat="lineItem in lineItems | orderBy:'date'" style="margin-bottom:10px; padding:10px;  width:100%; height:80px; background-color:#e8e8e8; position: relative")
+        p(style="font-size:16px") {{lineItem.description}}
+        p(style="font-size:14px") {{lineItem.category}}
+        span(style="font-size:14px; position: absolute; right:10px; top: 10px") ${{lineItem.amount}}
+        
+    div.container.fullList(ng-hide="loading")
       h4= title
       p(ng-hide="lineItems.length")
         | You have no expenses!. Head 
