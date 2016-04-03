@@ -7,10 +7,10 @@ block content
         img(id="mySpinner" src="/images/spinner.gif")
     div.container.responsive(ng-hide="loading")
       h4 Recent Expenses
-      div(ng-repeat="lineItem in lineItems | orderBy:'date'" style="margin-bottom:10px; padding:10px;  width:100%; height:80px; background-color:#e8e8e8; position: relative")
-        p(style="font-size:16px") {{lineItem.description}}
-        p(style="font-size:14px") {{lineItem.category}}
-        span(style="font-size:14px; position: absolute; right:10px; top: 10px") ${{lineItem.amount}}
+      div.expenseResponsiveBox(ng-repeat="lineItem in lineItems | orderBy:'date'")
+        p.expenseResponsiveBoxTitle {{lineItem.description}}
+        p.expenseResponsiveBoxCategory {{lineItem.date | date:"MMMM dd yyyy"}}
+        span.expenseResponsiveBoxAmount ${{lineItem.amount}}
         
     div.container.fullList(ng-hide="loading")
       h4= title
