@@ -1,10 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family:'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color:#337AB7;
 }
 
 .form-signin {
@@ -40,11 +40,6 @@ a {
   margin-top:20px;
 }
 
-#listExpenses{
-  text-align:center;
-  margin-top:20px;
-}
-
 .boxContainer{
   padding-left:20px;  padding-bottom:20px; margin-bottom:20px; -webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px;border:1px solid #f8f8f8;background-color:#F2F2F2;-webkit-box-shadow: #B5B5B5 3px 3px 3px;-moz-box-shadow: #B5B5B5 3px 3px 3px; box-shadow: #B5B5B5 3px 3px 3px;
 }
@@ -61,4 +56,12 @@ a {
   margin:auto;
   height:50px;
   width:200px;
+}
+
+#logout{
+  font-size:14px;
+}
+
+#logo{
+  height:20px;
 }

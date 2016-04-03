@@ -38,7 +38,7 @@ $(function() {
 
   function initializeOptions() {
     var categories = [{ name: "General Spending", id: "general" }, { name: "Living Expenses", id: "living" }, { name: "Food", id: "food" }, { name: "Health & Wellness", id: "health" },
-      { name: "Automotive", id: "automotive" }, { name: "Income", id: "income" }]
+      { name: "Transportation", id: "transportation" }, { name: "Income", id: "income" }]
     var option = '';
 
     for (var i = 0; i < categories.length; i++) {

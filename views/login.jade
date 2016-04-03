@@ -1,5 +1,12 @@
 extends layout
 
+block navbar
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href='/')
+          img#logo(src="/images/rabbit.png")
+
 block content
   div.container
     form.form-signin

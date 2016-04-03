@@ -1,18 +1,7 @@
-doctype html
-html(ng-app='financeApp')
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet' href="/bootstrap/bootstrap.min.css")
-    link(rel="stylesheet" href="/font-awesome/css/font-awesome.min.css")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js")
-    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
-    script(src='/core.js')
-    script(src="/javascripts/expenses.js")
-    
+extends layout
+
+block content
   body(ng-controller='mainController')
-    
     div.container
       div.form-signin(ng-show="loading")
         img(id="mySpinner" src="/images/spinner.gif")
