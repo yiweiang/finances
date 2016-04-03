@@ -12,7 +12,7 @@ body {
     display:block
   }
   .fullList{
-    visibility:hidden
+    display:none
   }
 }
 
