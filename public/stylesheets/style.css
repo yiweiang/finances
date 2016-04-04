@@ -16,6 +16,11 @@ body {
   }
 }
 
+#listExpenses{
+  text-align:center;
+  margin-top:20px;
+}
+
 .expenseResponsiveBox{
   margin-bottom:10px; 
   padding:10px;  
