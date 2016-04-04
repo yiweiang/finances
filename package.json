@@ -1,5 +1,4 @@
 {
-  "engines":{"node":5.3},
   "name": "finances",
   "version": "0.0.0",
   "private": true,
