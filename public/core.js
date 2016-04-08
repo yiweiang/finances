@@ -1,5 +1,5 @@
 // public/core.js
-var scotchTodo = angular.module('financeApp', []).controller('mainController', mainController);
+var financeApp = angular.module('financeApp', []).controller('mainController', mainController);
 
 function mainController($scope, $http) {
   $scope.formData = {};
