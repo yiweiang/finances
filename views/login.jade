@@ -1,13 +1,10 @@
 extends layout
 
 block navbar
-  nav.navbar.navbar-default.navbar-fixed-top
-    .container-fluid
-      .navbar-header
-        a.navbar-brand(href='/')
-          img#logo(src="/images/rabbit.png")
-
+  md-toolbar(layout="column")
+    .md-toolbar-tools
+      span Spending
 block content
   div.container
     form.form-signin
-      button#login.btn.btn-lg.btn-primary.btn-block(type='button') Login with Google
+     md-button.md-primary.md-raised#login(ng-click="login()") Login with Google

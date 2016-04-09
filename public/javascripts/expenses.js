@@ -32,10 +32,6 @@ $(function() {
 
   });
 
-  $("#login").click(function() {
-    window.location.href = '/auth/google'
-  });
-
   $(".deleteLineItem").click(function() {
     
     id = $(".deleteLineItem").prop("id");

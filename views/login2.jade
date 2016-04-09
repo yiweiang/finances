@@ -1,0 +1,9 @@
+extends layout
+
+block navbar
+  md-toolbar(layout="column")
+    .md-toolbar-tools
+      span Spending
+block content
+  ul(ng-repeat="lineItem in lineItems")
+    li {{lineItem.amount}}

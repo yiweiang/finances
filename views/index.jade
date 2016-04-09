@@ -4,12 +4,25 @@ block content
   div.container
     form.form-signin
       h2.form-signin-heading Input Spending
-      br
-      input#amount.form-control(type="number" autofocus='' placeholder='Amount')
-      select#category.form-control
-      input#description.form-control(type='text', placeholder='Description', required='')
-      input#date.form-control(type='date', placeholder='Description', required='')
-      button#submit.btn.btn-lg.btn-primary.btn-block(type='button') Submit
-      p(id="statusMessage")
-      p(id="listExpenses") 
-        a(href="/expenses/list") List all expenses
+      div(layout="column")
+        div(flex)
+          md-input-container.md-block(flex-gt-xs)
+              label Amount
+              input(ng-model="amount" type="number")
+        div(flex)
+          md-input-container.md-block(flex-gt-xs)
+            label Category
+            md-select(ng-model="category")
+              md-option(ng-repeat="category in categories" value="{{category.id}}"){{category.name}}
+        div(flex)
+          md-input-container.md-block(flex-gt-xs)
+            label Description
+            input(ng-model="description")
+        div(flex)
+          md-datepicker(ng-model="myDate" md-placeholder="Enter date")
+        div(flex)
+          md-button.md-primary.md-raised(ng-click="login()") Submit
+        div(flex)
+        p(id="statusMessage")
+        p(id="listExpenses") 
+          a(href="/expenses/list") List all expenses

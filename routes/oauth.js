@@ -18,7 +18,7 @@ router
 
   .get('/login', function(req, res) {
     res.addLocals({ error: req.flash('error') });
-    res.render('login');
+    res.render('login2');
   })
 
   .get('/logout', function(req, res) {
